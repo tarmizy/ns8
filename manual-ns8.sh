@@ -22,7 +22,7 @@ check_requirements() {
     if ! ping -c 1 8.8.8.8 >/dev/null 2>&1; then
         log_message "Error: No internet connection"
         exit 1
-    }
+    fi
     
     # Check available memory
     total_mem=$(free -m | awk '/^Mem:/{print $2}')

@@ -1,4 +1,4 @@
-user default on sanitize-payload ~* ~node/* ~module/* &* +@all +@read +@connection +subscribe +psubscribe +@admin
+user default on allkeys allchannels +@all
 user admin on sanitize-payload #c677415f02a0bfa784298e68e75e58395fa90d6977c736d578adaa5d120ee7af resetchannels -@all
 user api-server on sanitize-payload #d70262164da28d22a7535c73c3161a5f661500b45258c995de1963ec14e689cc ~* &* -@all +@read +@pubsub +lpush +@transaction +@connection +role +hset
 user cluster on sanitize-payload #d90b29a87bf7409c1702eb04a2e0bfc790176ab256edaf73e4260de4a593e6a7 ~* &* +@all

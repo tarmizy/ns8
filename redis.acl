@@ -1,6 +1,7 @@
-user default on nopass sanitize-payload ~* ~cluster/* ~node/* ~module/* &* +@all +@read +@connection +subscribe +psubscribe
+user default on +@all ~* &*
 user admin on sanitize-payload #c677415f02a0bfa784298e68e75e58395fa90d6977c736d578adaa5d120ee7af resetchannels -@all
 user api-server on sanitize-payload #d70262164da28d22a7535c73c3161a5f661500b45258c995de1963ec14e689cc ~* &* -@all +@read +@pubsub +lpush +@transaction +@connection +role +hset
 user cluster on sanitize-payload #d90b29a87bf7409c1702eb04a2e0bfc790176ab256edaf73e4260de4a593e6a7 ~* &* +@all
+user default on nopass sanitize-payload ~cluster/* ~node/* ~module/* &* -@all +@read +@connection +subscribe +psubscribe -@admin
 user module/traefik1 on sanitize-payload #bf04429340f17950a4ddc4fdf3ec1e687df1d245eac44cce84199347c2d31f4b ~module/traefik1/* ~task/module/traefik1/* resetchannels &progress/module/traefik1/* &module/traefik1/event/* -@all +@read +@write +@transaction +@connection +publish -@admin
 user node/1 on sanitize-payload #7b868fb3e1b4db99319468cd2beaab1b5667c7cfda4bcd99a76663c726940166 ~node/1/* ~task/node/1/* resetchannels &progress/node/1/* &node/1/event/* -@all +@read +@write +@transaction +@connection +publish -@admin +psync +replconf
